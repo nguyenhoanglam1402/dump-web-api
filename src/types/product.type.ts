@@ -1,6 +1,6 @@
 export interface IProductData {
   name: string;
-  features: string[];
+  feature: string[];
   description: string;
   price: number;
   pictureURL: string;

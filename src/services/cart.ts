@@ -76,7 +76,6 @@ export const getCartItems = async (userId: string) => {
     include: [
       {
         model: Product, // Include product details
-        attributes: ['id', 'name', 'price', 'description'],
       },
     ],
   });

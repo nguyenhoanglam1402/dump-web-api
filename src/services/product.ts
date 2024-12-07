@@ -21,7 +21,7 @@ export const createProduct = async (productData: IProductData) => {
   // Create the product using Sequelize
   const newProduct = await Product.create({
     name: productData.name,
-    feature: productData.features,
+    feature: productData.feature,
     description: productData.description,
     price: productData.price,
     amountInStore: productData.amountInStore,
