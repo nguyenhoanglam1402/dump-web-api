@@ -39,8 +39,8 @@ export const addCart = async (userId: string, productId: string, quantity: numbe
   return { message: 'Product added to cart successfully' };
 }
 
-export const deleteCart = async (userId: string, productId: string) => {
-  const cartItem = await Cart.findOne({ where: { userId, productId } });
+export const deleteCart = async (cartId: string) => {
+  const cartItem = await Cart.findOne({ where: { id: cartId } });
 
   if (!cartItem) {
     throw new Error('Product not found in cart');
@@ -51,8 +51,8 @@ export const deleteCart = async (userId: string, productId: string) => {
   return { message: 'Product removed from cart successfully' };
 }
 
-export const updateCartItem = async (userId: string, productId: string, quantity: number) => {
-  const cartItem = await Cart.findOne({ where: { userId, productId } });
+export const updateCartItem = async (id: string, quantity: number) => {
+  const cartItem = await Cart.findOne({ where: { id } });
 
   if (!cartItem) {
     throw new Error('Product not found in cart');

@@ -21,26 +21,26 @@ class CartController {
 
   @catchError
   public async removeFromCart(req: Request, res: Response) {
-    const { userId, productId } = req.body;
+    const { cartId } = req.params;
 
-    if (!userId || !productId) {
-      res.status(400).json({ error: 'userId and productId are required' });
+    if (!cartId) {
+      res.status(400).json({ error: 'cartId is required' });
       return
     }
-    const response = await deleteCart(userId, productId);
+    const response = await deleteCart(cartId);
     res.status(200).json(response);
   }
 
   @catchError
   public async updateCartItem(req: Request, res: Response) {
-    const { userId, productId, quantity } = req.body;
+    const { id, quantity } = req.body;
 
-    if (!userId || !productId || quantity === undefined) {
+    if (!id || quantity === undefined) {
       res.status(400).json({ error: 'userId, productId, and quantity are required' });
       return
     }
 
-    const response = await updateCartItem(userId, productId, quantity);
+    const response = await updateCartItem(id, quantity);
     res.status(200).json(response);
 
   }

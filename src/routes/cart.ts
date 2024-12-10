@@ -8,7 +8,7 @@ const cartRouter = Router();
 cartRouter.use(authenticate as any)
 
 cartRouter.post(`/${PREFIX}`, CartController.addToCart);
-cartRouter.delete(`/${PREFIX}`, CartController.removeFromCart);
+cartRouter.delete(`/${PREFIX}/:cartId`, CartController.removeFromCart);
 cartRouter.put(`/${PREFIX}`, CartController.updateCartItem);
 cartRouter.get(`/${PREFIX}/:userId`, CartController.getCartItems);
 

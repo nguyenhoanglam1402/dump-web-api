@@ -22,7 +22,7 @@ Category.init(
       allowNull: false,
     },
     pictureURL: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   },

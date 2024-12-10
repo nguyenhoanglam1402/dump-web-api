@@ -14,6 +14,6 @@ export const authenticate = (req: any, res: Response, next: NextFunction) => {
     req.user = decoded; // Store decoded token (user info) in request object
     next();
   } catch (err) {
-    res.status(400).json({ error: 'Token is not valid' });
+    res.status(401).json({ error: 'Token is not valid' });
   }
 };

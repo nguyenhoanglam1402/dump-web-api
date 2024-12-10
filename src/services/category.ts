@@ -22,7 +22,7 @@ export const createCategoryService = async (categoryData: ICategoryData) => {
 export const getCategory = async () => {
   try {
     const categories = await Category.findAll()
-    return categories;
+    return { message: 'Fetch ok', data: categories };
   } catch (error) {
     console.error('Error creating category:', error);
     throw error;  // Propagate the error to be handled at a higher level (e.g., controller)
